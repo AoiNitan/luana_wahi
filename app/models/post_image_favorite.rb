@@ -1,0 +1,2 @@
+class PostImageFavorite < ApplicationRecord
+end
