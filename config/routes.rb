@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
   namespace :admin do
     get 'homes/top'
   end
@@ -29,6 +33,7 @@ Rails.application.routes.draw do
   sessions: "pubic/sessions"
   }
 
+
   scope module: :public do
     resources :post_images, only: [:new, :create, :index, :show, :destroy] do
       resource :post_images_favorites, only: [:create, :destroy]
@@ -39,6 +44,14 @@ Rails.application.routes.draw do
       resource :post_blogs_favorites, only: [:create, :destroy]
       resources :post_blogs_comments, only: [:create, :destroy]
     end
+
+    resources :users do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
+
+    resources :notifications, only: :index
 
     get 'users/my_page' => "users#show"
     get 'users/information/edit' => "users#edit"
