@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
 
 
+  #ゲストログイン
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+
+
+
   #管理者
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
