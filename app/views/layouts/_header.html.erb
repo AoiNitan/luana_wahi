@@ -1,26 +1,43 @@
-<% if user_signed_in? %>
-  <ul class="nav col-6 col-sm-auto col-lg-auto my-2 justify-content-end my-md-0">
-    <li class="nav-item">
-      <%= link_to "ログアウト",  destroy_user_session_path, method: :delete, class: 'nav-link btn btn-light' %>
-    </li>
-  </ul>
+<nav class="naver naver-expand-lg naver-light">
+  <div class="container">
+    <a class="naver-brand p-3" href="/"><%= image_tag('logo.jpg') %></a>
 
-<% elsif admin_signed_in? %>
-<ul class="nav col-6 col-sm-auto col-lg-auto my-2 justify-content-end my-md-0">
-  <li class="nav-item">
-    <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: 'nav-link btn btn-light' %>
-  </li>
-</ul>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="naver-toggler-icon"></span>
+    </button>
 
-<% else %>
-<ul class="nav col-6 col-sm-auto col-lg-auto my-2 justify-content-end my-md-0">
-  <li class="nav-item">
-    <%= link_to "新規登録", new_user_registration_path, class: 'nav-link btn btn-light' %>
-  </li>
+    <div class="collapse naver-collapse" id="naverNavDropdown">
+      <ul class="naver-nav ml-auto">
+        <% if user_sign_in? %>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+        </li>
 
-  <li class="nav-item">
-    <%= link_to "ログイン", new_user_session_path, class: 'nav-link btn btn-light' %>
-  </li>
-</ul>
+        <li class="nav-item">
+          <%= link_to "マイページ", users_my_page_path, class: 'nav-link text-dark' %>
+        </li>
 
-<% end %>
+        <% elsif admin_sign_in? %>
+        <li class="nav-item">
+          <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+        </li>
+
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "ゲストログイン",  guest_sign_in_path, class: 'nav-link text-dark' %>
+        </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

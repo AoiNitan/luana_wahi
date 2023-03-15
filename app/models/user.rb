@@ -60,4 +60,13 @@ class User < ApplicationRecord
     end
   end
 
+  #ゲストログイン
+  def self.guest
+    find_or_create_by!(email: 'abc@aaa.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+      user.name = 'サンプル'
+    end
+  end
+
 end
