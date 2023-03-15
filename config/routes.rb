@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
 
   #ゲストログイン
-  post 'guest_sign_in', to: 'public/sessions#new_guest'
-
+  devise_scope :user do
+    post 'guest_sign_in', to: 'public/sessions#new_guest'
+  end
 
 
   #管理者
@@ -33,7 +34,7 @@ Rails.application.routes.draw do
 
 
   #ユーザー
-  devise_for :user, controllers: {
+  devise_for :users, controllers: {
   registrations: "pubic/registrations",
   sessions: "pubic/sessions"
   }

@@ -11,26 +11,28 @@
   </head>
 
   <body>
-    <div class="d-flex flex-column vh-100">
-      <head classs="shadow-sm">
-        <%= render 'layouts/header' %>
-      </head>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+      <%= render 'layouts/header' %>
+    </header>
 
-      <main class="mb-auto">
-        <%= yield %>
-      </main>
+    <main class="mb-auto pb-5">
+      <%= yield %>
+    </main>
 
-      <footer class="bg-dark text-white pt-5 pb-4">
-        <div class="container">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <p>ハワイ語<br>
-              Luana =「仲間と楽しむ・くつろぐ」, Wahi = 「場所」
-              </p>
-            </div>
+    <footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <p>
+            ハワイ語<br>
+            Luana =「仲間と楽しむ・くつろぐ」<br>
+            Wahi = 「場所」<br>
+            動物たちの可愛らしい姿を見て<br>
+            たくさんくつろいでください
+            </p>
           </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </body>
 </html>
