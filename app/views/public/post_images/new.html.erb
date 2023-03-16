@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h4 class="text-dark">写真投稿フォーム</h4>
+
+      <% if @post_image.errors.any? %>
+        <ul class="alert alert-denger" role="alert">
+          <h6 class="alert-heading">
+            <%= @post_image.errors.count %>件のエラーが発生しました
+          </h6>
+          <%= @post_image.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= form_with model: @post_image do |f| %>
+        <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+        <div class="col-md-5">
+          <%= f.text_field :title, class: "form-control mt-3", placeholder:"タイトル" %>
+
+          <%= f.text_area :content, class: "form-control mt-2", rows:"5", placeholder:"内容" %>
+          <hr>
+          <%= f.submit '投稿', class: "btn btn-info mt-4" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
