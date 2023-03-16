@@ -35,8 +35,8 @@ Rails.application.routes.draw do
 
   #ユーザー
   devise_for :users, controllers: {
-  registrations: "pubic/registrations",
-  sessions: "pubic/sessions"
+  registrations: "public/registrations",
+  sessions: "public/sessions"
   }
 
 
