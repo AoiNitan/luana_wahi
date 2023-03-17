@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h2>Blog Detail</h2>
+      <% if @post_blog.user == current_user %>
+        <%= link_to "削除", post_blog_path(@post_blog), method: :delete %>
+      <% end %>
+      <table>
+        <tr>
+          <%= image_tag @post_blog.user.get_profile_image(50,50) %>
+          <%= @post_blog.user.name %>
+        </tr>
+        <tr>
+          <p>投稿日 : <%= @post_blog.created_at.strftime('%Y/%m/%d') %></p>
+        </tr>
+        <tr>
+          <p>タイトル : <%= @post_blog.title_blog %></p>
+        </tr>
+        <tr><%= @post_blog.content_blog %></tr>
+        <tr>
+          <% if @post_blog.blog_favorited_by?(current_user) %>
+            <p>
+              <%= link_to post_blog_post_blogs_favorites_path(@post_blog), method: :delete do %>
+                ♥<%= @post_blog.post_blog_favorites.count %>いいね
+              <% end %>
+            </p>
+          <% else %>
+            <p>
+              <%= link_to post_blog_post_blogs_favorites(@post_blog), method: :post do %>
+                ♡<%= @post_blog.post_blog_favorites.count %>いいね
+            </p>
+          <% end %>
+        </tr>
+        <tr>
+          <p>コメント件数 : <%= @post_blog.post_blog_comments.count %></p>
+        </tr>
+        <tr>
+          <%= @post_blog.post_blog_comments.eachado |post_blog_comment| %>
+            <%= image_tag post_blog_comment.user.get_profile_image(50,50) %>
+            <%= post_blog_comment.user.name %>
+            <%= post_blog_comment.created_at.strftime('%Y/%m/%d') %>
+            <%= post_blog_comment.blog_comment %>
+            <%= if post_blog_comment.user == current_user %>
+              <%= link_to "削除", post_blog_post_blogs_comment_path(post_blog_comment.post_blog, post_blog_comment), method: :delete %>
+            <% end %>
+          <% end %>
+        </tr>
+        <tr>
+          <%= form_with model: [@post_blog, @post_blog_comment] do |f| %>
+            <%= f.text_area :blog_comment, rows: '5', placeholder: "コメント欄" %>
+            <%= f.submit "送信" %>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
