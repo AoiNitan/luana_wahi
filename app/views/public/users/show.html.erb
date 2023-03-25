@@ -1,14 +1,16 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      
-      <table class="table">
-        <h2>My Page</h2>
-        <tr><%= image_tag user.get_profile_image, size:"100x100" %></tr>
-        <tr>
-          <th><%= </th>
-        </tr>
-      </table>
+
+      <h2>My Page</h2>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <h5><%= @user.name %></h5>
+
+      <div class="row">
+        <% if @user == current_user %>
+          <p><%= link_to "プロフィール編集", users_information_edit_path(@user) %></p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -9,11 +9,7 @@ Rails.application.routes.draw do
   end
   root to: "public/homes#top"
 
-
-  #ゲストログイン
-  devise_scope :user do
-    post 'guest_sign_in', to: 'public/sessions#new_guest'
-  end
+  get "search", to: "public/search#search"
 
 
   #管理者
@@ -40,6 +36,12 @@ Rails.application.routes.draw do
   }
 
 
+  #ゲストログイン
+  devise_scope :user do
+    post 'guest_sign_in', to: 'public/sessions#new_guest'
+  end
+
+
   scope module: :public do
     resources :post_images, only: [:new, :create, :index, :show, :destroy] do
       resource :post_images_favorites, only: [:create, :destroy]
@@ -56,6 +58,8 @@ Rails.application.routes.draw do
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
     end
+
+
 
     resources :notifications, only: :index
 

@@ -1,4 +1,9 @@
 <div class="card-list-container py-5">
+  <div>
+    <%= flash[:notice] %>
+  </div>
+
+  </div>
   <% @post_images.each do |post_image| %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
       <%= link_to post_image_path(post_image.id) do %>
