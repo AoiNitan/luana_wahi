@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
   root to: "public/homes#top"
 
-  get "search", to: "public/search#search"
+  get "search" => "public/searches#search"
 
 
   #管理者
