@@ -59,6 +59,12 @@ Rails.application.routes.draw do
       get 'followers' => 'relationships#followers', as: 'followers'
     end
 
+    resources :users, only: [:show, :index, :edit, :update] do
+      member do
+        get :favorites
+      end
+    end
+
 
 
     resources :notifications, only: :index

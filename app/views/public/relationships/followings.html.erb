@@ -1,2 +1,17 @@
-<h1>Public::Relationships#followings</h1>
-<p>Find me in app/views/public/relationships/followings.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5>フォロー一覧</h5>
+      <% if @users.exists? %>
+
+        <% @users.each do |user| %>
+          <%= user.name %>
+        <% end %>
+
+      <% else %>
+        <p>フォローしているユーザーはいません</p>
+
+      <% end %>
+    </div>
+  </div>
+</div>

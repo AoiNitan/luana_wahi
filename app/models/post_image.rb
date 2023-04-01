@@ -81,4 +81,5 @@ class PostImage < ApplicationRecord
     else
       @post_image = PostImage.all
     end
+  end
 end

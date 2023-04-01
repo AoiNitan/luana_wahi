@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h5>ユーザー一覧</h5>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <table>
+        <thead>
+          <th>会員ID</th>
+          <th>名前</th>
+        </thead>
+        <% @users.each do |user| %>
+          <tbody>
+            <td><%= user.id %></td>
+            <td><%= link_to user.name, admin_users_path(user), class: "link_text link_border" %></td>
+            <% if user.is_deleted == false %>
+              <td class="text-success">有効</td>
+            <% else %>
+              <td class="text-secondary">退会</td>
+            <% end %>
+          </tbody>
+        <% end %>
+      </table>
+      <%= paginate @users %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5 mx-auto">
+      <h4 class="text-center">本当に退会しますか？</h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="text-center col-sm-5 mx-auto mt-3">
+      <p>
+        退会すると今までの投稿も全て消えてしまいます。<br>
+        退会する場合は「退会する」ボタンをクリックしてください。
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="btn-center col-sm-5 mx-auto mt-5">
+      <%= link_to "退会しない", users_my_page_path, class: "btn btn-primary mr-5 col-md-4" %>
+      <%= link_to "退会する", users_withdraw_path, method: :patch, class: "btn btn-danger col-md-4" %>
+    </div>
+  </div>
+</div>

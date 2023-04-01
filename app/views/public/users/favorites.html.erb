@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="text-center mx-auto">
+      <h3>いいね一覧</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <% @favorite_images.each do |favorite_image| %>
+        <%= favorite_image.title %>
+      <% end %>
+    </div>
+
+    <div class="col-md-6">
+      <% @favorite_blogs.each do |favorite_blog| %>
+        <%= favorite_blog.title_blog %>
+      <% end %>
+    </div>
+  </div>
+</div>

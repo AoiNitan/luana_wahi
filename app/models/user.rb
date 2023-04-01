@@ -82,5 +82,6 @@ class User < ApplicationRecord
     else
       @user = USer.all
     end
+  end
 
 end
