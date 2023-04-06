@@ -19,12 +19,12 @@ class User < ApplicationRecord
 
   has_one_attached :profile_image
   has_many :post_images, dependent: :destroy
-  has_many :post_images_comments, dependent: :destroy
-  has_many :post_images_favorites, dependent: :destroy
+  has_many :post_image_comments, dependent: :destroy
+  has_many :post_image_favorites, dependent: :destroy
 
   has_many :post_blogs, dependent: :destroy
-  has_many :post_blogs_comments, dependent: :destroy
-  has_many :post_blogs_favorites, dependent: :destroy
+  has_many :post_blog_comments, dependent: :destroy
+  has_many :post_blog_favorites, dependent: :destroy
 
   #メソッド作成
   def get_profile_image(width,height)

@@ -3,9 +3,11 @@
     <%= image_tag @post_image.get_image, class: "card-img-top" %>
     <div  class="card-body">
       <div class="row">
+
         <div class="col-2">
           <%= image_tag @post_image.user.get_profile_image(60,60) %>
         </div>
+
         <div class="col-10">
           <p><%= @post_image.title %></p>
           <p><%= @post_image.content %></p>
@@ -25,6 +27,7 @@
             <p>
               <%= link_to post_image_post_images_favorites(@post_image), method: :post do %>
                 ♡<%= @post_image.post_image_favorites.count %>いいね
+              <% end %>
             </p>
           <% end %>
 
@@ -43,6 +46,7 @@
             <%= f.text._area :image_comment, rows: '5', placeholder: "コメント欄" %>
             <%= f.submit "送信" %>
           <% end %>
+
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ class Public::PostBlogCommentsController < ApplicationController
     post_blog_comment = current_user.post_blog_comments.new(post_blog_comment_params)
     post_blog_comment.post_blog_id = post_blog.id
     post_blog_comment.save
+    post_blog.create_notification_blog_comment(current_user, post_blog_comment_id)
     redirect_to post_blog_path(post_blog)
   end
 

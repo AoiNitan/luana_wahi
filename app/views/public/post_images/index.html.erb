@@ -28,7 +28,7 @@
             </p>
 
             <span><%= post_image.user.name %> | </span>
-            <span><%= link_to "#{post_imahe.post_images_comments.count} コメント", post_image_path(post_image.id), class:"text-dark" %> | </span>
+            <span><%= link_to "#{post_image.post_image_comments.count} コメント", post_image_path(post_image.id), class:"text-dark" %> | </span>
           </div>
 
         </div>

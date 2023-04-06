@@ -1,8 +1,8 @@
 class PostBlog < ApplicationRecord
 
   belongs_to :user
-  has_many :post_blogs_comments, dependent: :destroy
-  has_many :post_blogs_favorites, dependent: :destroy
+  has_many :post_blog_comments, dependent: :destroy
+  has_many :post_blog_favorites, dependent: :destroy
 
   has_many :notifications, dependent: :destroy
 

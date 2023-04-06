@@ -6,6 +6,7 @@ class Public::PostImageCommentsController < ApplicationController
     post_image_comment = current_user.post_image_comments.new(post_image_comment_params)
     post_image_comment.post_image_id = post_image.id
     post_image_comment.save
+    # post_image.create_notification_image_comment(current_user, post_image_comment_id)
     redirect_to post_image_path(post_image)
   end
 
