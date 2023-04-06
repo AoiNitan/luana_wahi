@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="col-md-5">
       <h5><%= @user.name %>さんの会員詳細</h5>
     </div>
   </div>
 
   <div class="row">
-    <div class="mx-auto">
+    <div class="mx-auto col-md-12 mt-3">
       <table>
 
         <tr>
@@ -16,12 +16,12 @@
 
         <tr>
           <th>名前</th>
-          <td><%= @ser.name %></td>
+          <td><%= @user.name %></td>
         </tr>
 
         <tr>
           <th>会員ステータス</th>
-          <% if @user.is_daleted == false %>
+          <% if @user.is_deleted == false %>
             <td class="text-success">有効</td>
           <% else %>
             <td class="text-secondary">退会</td>

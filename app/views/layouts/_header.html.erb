@@ -29,6 +29,11 @@
       <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
     </li>
 
+    <li>
+      <%= link_to "User 一覧", admin_users_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
+    </li>
+    </li>
+
     <% else %>
     <li class="nav-item">
       <%= link_to "新規登録", new_user_registration_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>

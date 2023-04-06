@@ -11,16 +11,19 @@
         <thead>
           <th>会員ID</th>
           <th>名前</th>
+          <th>ステータス</th>
         </thead>
         <% @users.each do |user| %>
           <tbody>
             <td><%= user.id %></td>
-            <td><%= link_to user.name, admin_users_path(user), class: "link_text link_border" %></td>
-            <% if user.is_deleted == false %>
-              <td class="text-success">有効</td>
-            <% else %>
-              <td class="text-secondary">退会</td>
-            <% end %>
+            <td><%= link_to user.name, admin_user_path(user), class: "link_text link_border" %></td>
+            <td>
+              <% if user.is_deleted == false %>
+                <td class="text-success">有効</td>
+              <% else %>
+                <td class="text-secondary">退会</td>
+              <% end %>
+            </td>
           </tbody>
         <% end %>
       </table>
