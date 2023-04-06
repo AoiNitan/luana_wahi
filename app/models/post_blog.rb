@@ -14,22 +14,22 @@ class PostBlog < ApplicationRecord
     post_blog_favorites.exists?(user_id: user.id)
   end
 
-  def create_notification_blog_like(current_user)
-    #既にいいねされているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_blog_id = ?", current_user.id, user_id, id, 'blog_like'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        post_blog_id: id,
-        visited_id: user_id,
-        action: 'blog_like'
-        )
-      #自分の投稿に対するいいねの場合通知済み
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
-      notification.save if notification.valid?
-    end
-  end
+  # def create_notification_blog_like(current_user)
+  #   #既にいいねされているか検索
+  #   temp = Notification.where(["visitor_id = ? and visited_id = ? and post_blog_id = ?", current_user.id, user_id, id, 'blog_like'])
+  #   if temp.blank?
+  #     notification = current_user.active_notifications.new(
+  #       post_blog_id: id,
+  #       visited_id: user_id,
+  #       action: 'blog_like'
+  #       )
+  #     #自分の投稿に対するいいねの場合通知済み
+  #     if notification.visitor_id == notification.visited_id
+  #       notification.checked = true
+  #     end
+  #     notification.save if notification.valid?
+  #   end
+  # end
 
   def create_notification_blog_comment(current_user, post_blog_comment_id)
     #自分以外にコメントしている人すべてを取得し全員に通知

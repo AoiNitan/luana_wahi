@@ -13,11 +13,11 @@
         </thead>
 
         <tbody>
-          <% @post_blogs.each do |post_blog| do %>
+          <% @post_blogs.each do |post_blog| %>
             <tr>
               <%= link_to user_path(post_blog.user) do %>
                 <td>
-                  <%= image_tag post_blog.user.get_profile_image, size: '50x50' %>
+                  <%= image_tag post_blog.user.get_profile_image(50,50) %>
                 </td>
               <% end %>
               <td>

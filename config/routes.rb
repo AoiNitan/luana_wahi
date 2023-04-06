@@ -44,13 +44,13 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :post_images, only: [:new, :create, :index, :show, :destroy] do
-      resource :post_images_favorites, only: [:create, :destroy]
-      resources :post_images_comments, only: [:create, :destroy]
+      resource :post_image_favorites, only: [:create, :destroy]
+      resources :post_image_comments, only: [:create, :destroy]
     end
 
     resources :post_blogs, only: [:new, :create, :index, :show, :destroy] do
-      resource :post_blogs_favorites, only: [:create, :destroy]
-      resources :post_blogs_comments, only: [:create, :destroy]
+      resource :post_blog_favorites, only: [:create, :destroy]
+      resources :post_blog_comments, only: [:create, :destroy]
     end
 
     resources :users do

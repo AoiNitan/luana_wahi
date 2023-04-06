@@ -13,7 +13,7 @@ class PostImage < ApplicationRecord
 
   #メソッド作成
   def image_favorited_by?(user)
-    post_images_favorites.exists?(user_id: user.id)
+    post_image_favorites.exists?(user_id: user.id)
   end
 
   def get_image
@@ -24,22 +24,22 @@ class PostImage < ApplicationRecord
     image
   end
 
-  def create_notification_image_like(current_user)
-    #既にいいねされているか検索
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_image_id = ?", current_user.id, user_id, id, 'image_like'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        post_image_id: id,
-        visited_id: user_id,
-        action: 'image_like'
-        )
-      #自分の投稿に対するいいねの場合通知済み
-      if notification.visitor_id == notification.visited_id
-        notification.checked = true
-      end
-      notification.save if notification.valid?
-    end
-  end
+  # def create_notification_image_like(current_user)
+  #   #既にいいねされているか検索
+  #   temp = Notification.where(["visitor_id = ? and visited_id = ? and post_image_id = ?", current_user.id, user_id, id, 'image_like'])
+  #   if temp.blank?
+  #     notification = current_user.active_notifications.new(
+  #       post_image_id: id,
+  #       visited_id: user_id,
+  #       action: 'image_like'
+  #       )
+  #     #自分の投稿に対するいいねの場合通知済み
+  #     if notification.visitor_id == notification.visited_id
+  #       notification.checked = true
+  #     end
+  #     notification.save if notification.valid?
+  #   end
+  # end
 
 
   def create_notification_image_comment(current_user, post_image_comment_id)

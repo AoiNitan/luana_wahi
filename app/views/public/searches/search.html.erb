@@ -1,0 +1,33 @@
+<h2>検索結果</h2>
+<table class="table table-hover table-inverse">
+  <!--検索対象がUser-->
+  <% if @range == "User" %>
+    <thead>USER</thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_path(user) do %>
+              <%= user.name %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+
+  <% else %>
+  <!--検索対象がPostImage-->
+    <% @post_images.each do |post_image| %>
+      <thead>投稿</thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to  post_image_path(post_image) do %>
+                <%= post_image.title %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+    <% end %>
+  <% end %>
+</table>

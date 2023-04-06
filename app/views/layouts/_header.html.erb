@@ -20,6 +20,10 @@
       <%= link_to "ブログ投稿", new_post_blog_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
     </li>
 
+    <li class="nav-item">
+      <%= link_to "投稿一覧", post_images_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
+    </li>
+
     <% elsif admin_signed_in? %>
     <li class="nav-item">
       <%= link_to "Log out", destroy_admin_session_path, method: :delete, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
@@ -36,6 +40,10 @@
 
     <li class="nav-item">
       <%= link_to "ゲストログイン",  guest_sign_in_path, method: :post, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
+    </li>
+
+    <li class="nav-item">
+      <%= link_to "投稿一覧", post_images_path, class: 'mx-1 nav-link btn btn-light btn-sm mr-2' %>
     </li>
 
     <% end %>
