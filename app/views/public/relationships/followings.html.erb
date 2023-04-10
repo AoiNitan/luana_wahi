@@ -5,9 +5,15 @@
       <% if @users.exists? %>
 
         <% @users.each do |user| %>
+          <table>
+          <tr>
+          <td>
           <%= link_to user_path(user) do %>
             <%= user.name %>
           <% end %>
+          </td>
+          </tr>
+          </table>
         <% end %>
 
       <% else %>
