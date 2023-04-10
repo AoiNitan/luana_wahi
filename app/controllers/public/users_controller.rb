@@ -2,9 +2,11 @@ class Public::UsersController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @post_images = @user.post_images.page(params[:page])
   end
+
+
 
   def edit
     @user = current_user

@@ -3,7 +3,7 @@ class Public::HomesController < ApplicationController
   before_action :set_post_images, only: [:top]
 
   def top
-    @post_images = @new_post_images.first(4)
+
   end
 
   private

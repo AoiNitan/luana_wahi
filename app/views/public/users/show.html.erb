@@ -7,8 +7,20 @@
       <h5><%= @user.name %></h5>
 
       <div class="follow-group row">
-        <p>フォロー : <%= @user.followings.count %></p>
-        <p>フォロワー : <%= @user.followers.count %></p>
+
+        <p>
+          フォロー :
+          <%= link_to user_followings_path(@user) do %>
+            <%= @user.followings.count %>
+          <% end %>
+        </p>
+
+        <p>
+          フォロワー :
+          <%= link_to user_followers_path(@user) do %>
+            <%= @user.followers.count %>
+          <% end %>
+        </p>
       </div>
 
       <% if current_user.following?(@user) %>

@@ -69,7 +69,7 @@ Rails.application.routes.draw do
 
     resources :notifications, only: :index
 
-    get 'users/my_page' => "users#show"
+    # get 'users/my_page' => "users#my"
     get 'users/information/edit' => "users#edit"
     patch 'users/information' => "users#update"
     get 'users/unsubscribe' => "users#unsubscribe"

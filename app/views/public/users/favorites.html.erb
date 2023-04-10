@@ -8,7 +8,9 @@
   <div class="row">
     <div class="col-md-6">
       <% @favorite_images.each do |favorite_image| %>
-        <%= favorite_image.title %>
+        <%= link_to post_image_path(favorite_image) do %>
+          <%= favorite_image.title %>
+        <% end %>
       <% end %>
     </div>
 
