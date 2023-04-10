@@ -37,11 +37,52 @@
       <div class="row">
         <p><%= link_to "お気に入り記事", favorites_user_path(@user) %></p>
       </div>
-
-
-
-
-
     </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-5">
+      <div class="card-list-container py-5">
+        <% @post_images.each do |post_image| %>
+          <div class="card shadow-lg">
+            <%= link_to post_image_path(post_image.id) do %>
+              <%= image_tag post_image.get_image, class:"card-img-top"; %>
+            <% end %>
+
+            <div class="card-body">
+              <div class="row">
+                <p class="card-title">
+                  <%= post_image.title %>
+                </p>
+              </div>
+
+              <div class="row">
+                <p class="card-text">
+                  <%= post_image.content %>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-2"></div>
+
+    <div class="col-md-5">
+      <h5>ブログ一覧</h5>
+      <% @post_blogs.each do |post_blog| %>
+        <div class="row">
+          <%= link_to post_blog_path(post_blog.id) do %>
+            <%= post_blog.title_blog %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+
+
   </div>
 </div>
